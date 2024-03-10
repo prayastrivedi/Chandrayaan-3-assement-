@@ -6,7 +6,7 @@
   constructor(x, y, z, initialDirection) {
  this.position = { x, y, z };
     this.directions = ['N', 'E', 'S', 'W', 'Up', 'Down'];
-    this.direction = this.validateDirection(initialDirection) ? initialDirection : 'N';
+    this.currentDirection = this.validateDirection(initialDirection) ? initialDirection : 'N';
   }
 
   // TO VALIDATE DIRECTION IF DIRECTION EXISTS OR NOT 
@@ -14,6 +14,7 @@
     return this.directions.includes(direction);
   }
 
+  // TO EXECUTE COMMANDS IN SAME ORDER AS PROVIDED 
 executeCommands(commands) {
     for (const command of commands) {
       switch (command) {
@@ -41,9 +42,30 @@ executeCommands(commands) {
     }
 
   }
-
-   moveForward() {
-     
+// considering starting point to 0,0,s0
+// move forward logic if regarding currentDirection
+ moveForward() {
+    switch (this.currentDirection) {
+      case 'N':
+        this.position.y++;
+        break;
+      case 'S':
+        this.position.y--;
+        break;
+      case 'E':
+        this.position.x++;
+        break;
+      case 'W':
+        this.position.x--;
+        break;
+      case 'Up':
+        this.position.z++;
+        break;
+      case 'Down':
+        this.position.z--;
+        break;
+    }
+    console.log("Move forward Current Direction: " ,this.currentDirection+""+ this.position.x + " " + this.position.y + " "+this.position.z);
   }
 
    moveBackward() {
@@ -67,11 +89,13 @@ executeCommands(commands) {
   }
 
   getPosition() {
+    console.log('getPosition',this.position);
     return this.position;
   }
 
   getDirection() {
-    return this.direction;
+
+    return this.currentDirection;
   }
 }
 
