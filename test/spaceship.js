@@ -22,6 +22,13 @@ describe('chandrayaan', () => {
     expect(chandrayaan.getDirection()).to.equal('N');
   });
 
+  it('should move forward incorrectlly correctly', () => {
+ 
+    chandrayaan.executeCommands(['f']);
+    expect(chandrayaan.getPosition()).to.deep.equal({ x: 1, y: 0, z: 0 });
+    expect(chandrayaan.getDirection()).to.equal('N');
+  });
+
   
 
  
