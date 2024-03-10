@@ -1,52 +1,69 @@
  class Spaceship {
    position ;
    direction;
+   directions;
 
-  constructor(initialPosition, initialDirection) {
-    this.position = initialPosition;
-    this.direction = initialDirection;
+  constructor(x, y, z, initialDirection) {
+ this.position = { x, y, z };
+    this.directions = ['N', 'E', 'S', 'W', 'Up', 'Down'];
+    this.direction = this.validateDirection(initialDirection) ? initialDirection : 'N';
   }
 
-  executeCommands(commands) {
+  // TO VALIDATE DIRECTION IF DIRECTION EXISTS OR NOT 
+   validateDirection(direction) {
+    return this.directions.includes(direction);
+  }
+
+executeCommands(commands) {
     for (const command of commands) {
-      if (command === 'f') {
-        this.moveForward();
-      } else if (command === 'b') {
-        this.moveBackward();
-      } else if (command === 'r') {
-        this.turnRight();
-      } else if (command === 'l') {
-        this.turnLeft();
-      } else if (command === 'u') {
-        this.turnUp();
-      } else if (command === 'd') {
-        this.turnDown();
+      switch (command) {
+        case 'f':
+          this.moveForward();
+          break;
+        case 'b':
+          this.moveBackward();
+          break;
+        case 'l':
+          this.turnLeft();
+          break;
+        case 'r':
+          this.turnRight();
+          break;
+        case 'u':
+          this.turnUp();
+          break;
+        case 'd':
+          this.turnDown();
+          break;
+        default:
+          console.log(`Invalid command: ${command}`);
       }
     }
+
   }
 
    moveForward() {
-    // Implement move forward logic based on the current direction
+     
   }
 
    moveBackward() {
-    // Implement move backward logic based on the current direction
+     
   }
 
    turnRight() {
-    // Implement turn right logic based on the current direction
+   
   }
 
    turnLeft() {
-    // Implement turn left logic based on the current direction
+ 
   }
 
    turnUp() {
-    // Implement turn up logic based on the current direction
+    
   }
 
    turnDown() {
-    // Implement turn down logic based on the current direction
+    
   }
 
   getPosition() {
