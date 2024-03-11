@@ -92,6 +92,10 @@ executeCommands(commands) {
   }
 
   // logic to turn right 
+  // asumtion made from if the direction is up turn left  
+  //will make it north  and turn right   will be south  
+  // asumtion made from if the direction is down  turn   left will be south 
+  // and turn right will be north
   turnRight() {
    
     const currentIdx = this.directions.indexOf(this.currentDirection);
@@ -100,22 +104,35 @@ executeCommands(commands) {
   }
 
   // logic to turn left
-   turnLeft() {
-    const currentIdx = this.directions.indexOf(this.currentDirection);
-    console.log(currentIdx, 'turn left',this.directions[(currentIdx + 3) % 6]);
-    this.currentDirection = this.directions[(currentIdx + 3) % 6]; // Rotate 90 degrees left
-  }
+  turnLeft() {
+        if (this.currentDirection === 'N') {
+            this.currentDirection = 'W';
+        } else if (this.currentDirection === 'S') {
+            this.currentDirection = 'E';
+        } else if (this.currentDirection === 'E') {
+            this.currentDirection = 'N';
+        } else if (this.currentDirection === 'W') {
+            this.currentDirection = 'S';
+        }
+          else if (this.currentDirection === 'Up') {
+            this.currentDirection = 'N';
+          }
+          else if (this.currentDirection === 'Down') {
+            this.currentDirection = 'S';
+        }
 
-  // login to turn up and down
-  // assumtion made spacecraft can manocer up and down if  north and south
+    }
+
+
+  // login to turn up and down can move from any direction 
   turnUp(){
-   if (this.currentDirection == 'N' ||this.currentDirection == 'S') {
+  if (this.currentDirection !=='Up') {
     this.currentDirection = 'Up';
   }
 }
 
    turnDown() {
-     if (this.currentDirection == 'N' ||this.currentDirection == 'S') {
+     if  (this.currentDirection !=='Down'){
     this.currentDirection = 'Down';
   }
   }
