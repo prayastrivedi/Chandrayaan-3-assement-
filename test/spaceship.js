@@ -64,7 +64,13 @@ describe('chandrayaan', () => {
     expect(chandrayaan.getDirection()).to.equal('Down');
   });
 
-  
+   it('pass test case 1', () => {
+
+    chandrayaan.executeCommands(['f', 'r', 'u', 'b', 'l']);
+    expect(chandrayaan.getPosition()).to.deep.equal({ x: 0, y: 1, z: -1 });
+    expect(chandrayaan.getDirection()).to.equal('N');
+    console.log(chandrayaan.getDirection(),chandrayaan.getPosition())
+  });
 
  
 });

@@ -93,35 +93,40 @@ executeCommands(commands) {
 
   // logic to turn right 
   turnRight() {
+   
     const currentIdx = this.directions.indexOf(this.currentDirection);
+     console.log(this.currentDirection,currentIdx, this.directions[(currentIdx + 1) % 6],'turn right');
     this.currentDirection = this.directions[(currentIdx + 1) % 6];
   }
 
   // logic to turn left
    turnLeft() {
     const currentIdx = this.directions.indexOf(this.currentDirection);
+    console.log(currentIdx, 'turn left',this.directions[(currentIdx + 3) % 6]);
     this.currentDirection = this.directions[(currentIdx + 3) % 6]; // Rotate 90 degrees left
   }
 
+  // login to turn up and down
+  // assumtion made spacecraft can manocer up and down if  north and south
   turnUp(){
-   if (this.currentDirection !== 'Up') {
+   if (this.currentDirection == 'N' ||this.currentDirection == 'S') {
     this.currentDirection = 'Up';
   }
 }
 
    turnDown() {
-     if (this.currentDirection !== 'Down') {
+     if (this.currentDirection == 'N' ||this.currentDirection == 'S') {
     this.currentDirection = 'Down';
   }
   }
 
   getPosition() {
-   
+   console.log("fianl postion",this.position)
     return this.position;
   }
 
   getDirection() {
-
+console.log("fianl direction",this.currentDirection)
     return this.currentDirection;
   }
 }
