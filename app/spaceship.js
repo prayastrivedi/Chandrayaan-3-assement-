@@ -91,8 +91,10 @@ executeCommands(commands) {
     }
   }
 
-   turnRight() {
-   
+  // logic to turn right 
+  turnRight() {
+    const currentIdx = this.directions.indexOf(this.currentDirection);
+    this.currentDirection = this.directions[(currentIdx + 1) % 6];
   }
 
    turnLeft() {

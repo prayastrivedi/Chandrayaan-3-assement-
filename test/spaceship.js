@@ -36,6 +36,12 @@ describe('chandrayaan', () => {
     expect(chandrayaan.getDirection()).to.equal('N');
   });
 
+   it('should turn right  correctly', () => {
+
+    chandrayaan.executeCommands(['r']);
+    expect(chandrayaan.getPosition()).to.deep.equal({ x: 0, y: 0, z: 0 });
+    expect(chandrayaan.getDirection()).to.equal('E');
+  });
 
   //   it('should turn left correctly', () => {
 
