@@ -147,12 +147,10 @@ executeCommands(commands) {
   }
 
   getPosition() {
-   console.log("fianl postion",this.position)
     return this.position;
   }
 
   getDirection() {
-console.log("fianl direction",this.currentDirection)
     return this.currentDirection;
   }
 }
