@@ -110,11 +110,13 @@ executeCommands(commands) {
 }
 
    turnDown() {
-    
+     if (this.currentDirection !== 'Down') {
+    this.currentDirection = 'Down';
+  }
   }
 
   getPosition() {
-    console.log('getPosition',this.position);
+   
     return this.position;
   }
 
