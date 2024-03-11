@@ -97,13 +97,17 @@ executeCommands(commands) {
     this.currentDirection = this.directions[(currentIdx + 1) % 6];
   }
 
+  // logic to turn left
    turnLeft() {
- 
+    const currentIdx = this.directions.indexOf(this.currentDirection);
+    this.currentDirection = this.directions[(currentIdx + 3) % 6]; // Rotate 90 degrees left
   }
 
-   turnUp() {
-    
+  turnUp(){
+   if (this.currentDirection !== 'Up') {
+    this.currentDirection = 'Up';
   }
+}
 
    turnDown() {
     

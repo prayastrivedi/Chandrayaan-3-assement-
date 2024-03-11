@@ -43,12 +43,19 @@ describe('chandrayaan', () => {
     expect(chandrayaan.getDirection()).to.equal('E');
   });
 
-  //   it('should turn left correctly', () => {
+    it('should turn left correctly', () => {
 
-  //   chandrayaan.executeCommands(['l']);
-  //   expect(chandrayaan.getPosition()).to.deep.equal({ x: 0, y: 0, z: 0 });
-  //   expect(chandrayaan.getDirection()).to.equal('W');
-  // });
+    chandrayaan.executeCommands(['l']);
+    expect(chandrayaan.getPosition()).to.deep.equal({ x: 0, y: 0, z: 0 });
+    expect(chandrayaan.getDirection()).to.equal('W');
+  });
+
+   it('should turn left correctly', () => {
+
+    chandrayaan.executeCommands(['u']);
+    expect(chandrayaan.getPosition()).to.deep.equal({ x: 0, y: 0, z: 0 });
+    expect(chandrayaan.getDirection()).to.equal('Up');
+  });
 
   
 
