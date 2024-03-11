@@ -67,9 +67,28 @@ executeCommands(commands) {
     }
     console.log("Move forward Current Direction: " ,this.currentDirection+""+ this.position.x + " " + this.position.y + " "+this.position.z);
   }
-
-   moveBackward() {
-     
+// added logic gor backward movement
+  moveBackward() {
+    switch (this.currentDirection) {
+      case 'N':
+        this.position.y--;
+        break;
+      case 'S':
+        this.position.y++;
+        break;
+      case 'E':
+        this.position.x--;
+        break;
+      case 'W':
+        this.position.x++;
+        break;
+      case 'Up':
+        this.position.z--;
+        break;
+      case 'Down':
+        this.position.z++;
+        break;
+    }
   }
 
    turnRight() {

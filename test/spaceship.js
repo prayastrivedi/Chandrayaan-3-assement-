@@ -29,6 +29,21 @@ describe('chandrayaan', () => {
     expect(chandrayaan.getDirection()).to.equal('N');
   });
 
+   it('should move backward correctly', () => {
+
+    chandrayaan.executeCommands(['b']);
+    expect(chandrayaan.getPosition()).to.deep.equal({ x: 0, y: -1, z: 0 });
+    expect(chandrayaan.getDirection()).to.equal('N');
+  });
+
+
+  //   it('should turn left correctly', () => {
+
+  //   chandrayaan.executeCommands(['l']);
+  //   expect(chandrayaan.getPosition()).to.deep.equal({ x: 0, y: 0, z: 0 });
+  //   expect(chandrayaan.getDirection()).to.equal('W');
+  // });
+
   
 
  
