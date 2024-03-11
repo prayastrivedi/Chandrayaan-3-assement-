@@ -94,14 +94,23 @@ executeCommands(commands) {
   // logic to turn right 
   // asumtion made from if the direction is up turn left  
   //will make it north  and turn right   will be south  
-  // asumtion made from if the direction is down  turn   left will be south 
+  // asumtion made from if the direction is down  turn   right will be south 
   // and turn right will be north
   turnRight() {
-   
-    const currentIdx = this.directions.indexOf(this.currentDirection);
-     console.log(this.currentDirection,currentIdx, this.directions[(currentIdx + 1) % 6],'turn right');
-    this.currentDirection = this.directions[(currentIdx + 1) % 6];
-  }
+        if (this.currentDirection === 'N') {
+            this.currentDirection = 'E';
+        } else if (this.currentDirection === 'S') {
+            this.currentDirection = 'W';
+        } else if (this.currentDirection === 'E') {
+            this.currentDirection = 'S';
+        } else if (this.currentDirection === 'W') {
+            this.currentDirection = 'N';
+        }else if (this.currentDirection === 'Up') {
+            this.currentDirection = 'N';
+        } else if (this.currentDirection === 'Down') {
+            this.currentDirection = 's';
+        }
+    }
 
   // logic to turn left
   turnLeft() {
